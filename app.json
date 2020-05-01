@@ -1,0 +1,17 @@
+{
+  "name": "whatsweb",
+  "displayName": "whatsweb",
+  "expo": {
+    "name": "whatsweb",
+    "slug": "whatsweb",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
