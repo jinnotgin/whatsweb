@@ -21,6 +21,7 @@
     "android": {
       "package": "com.jinnotgin.whatsweb",
       "versionCode": 1
-    }
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }

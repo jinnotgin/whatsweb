@@ -1,4 +1,4 @@
-package com.whatsweb;
+package com.jinnotgin.whatsweb;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

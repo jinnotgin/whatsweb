@@ -1,4 +1,4 @@
-rootProject.name = 'whatsweb'
+rootProject.name = 'WhatsWeb'
 
 apply from: '../node_modules/react-native-unimodules/gradle.groovy'
 includeUnimodulesProjects()
