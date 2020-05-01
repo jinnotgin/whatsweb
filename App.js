@@ -12,16 +12,16 @@ if (document.getElementById('whatsweb_toggle') === null) {
     var appElem = document.querySelector('.app');
     var contactsElem = document.getElementById('side').parentElement;
     var chatElem = contactsElem.nextElementSibling;
-    var buttonElem = document.getElementById('whatsweb_toggle');
+    // var buttonElem = document.getElementById('whatsweb_toggle');
   
     if (mode === 'people') {
       contactsElem.style.display = 'block';
       chatElem.style.display = 'none';
-      buttonElem.textContent = "💬";
+      // buttonElem.textContent = "💬";
     } else if (mode === 'convo') {
       contactsElem.style.display = 'none';
       chatElem.style.display = 'block';
-      buttonElem.textContent = "🧑‍🤝‍🧑";
+      // buttonElem.textContent = "🧑‍🤝‍🧑";
 
       // scroll into "unread messages" area
       var messagesContainer = chatElem.querySelector('.copyable-area div');
@@ -36,6 +36,8 @@ if (document.getElementById('whatsweb_toggle') === null) {
           }
         }
       }
+
+      addBackButton();
     }
     appElem.setAttribute('data-whatsweb-mode', mode)
   }
@@ -91,12 +93,40 @@ if (document.getElementById('whatsweb_toggle') === null) {
     }
   }
   
-  var button = document.createElement("Button");
-  button.id="whatsweb_toggle"
-  button.innerHTML = "😶";
-  button.style = "top:6px;left:calc(50% - 1.5rem);position:absolute;z-index: 9999;background-color: white;border-radius: 50%;height: 3rem;width: 3rem;color: white;font-size: 1.75rem;line-height: 1rem; opacity: 0.5;"
-  button.onclick = buttonOnClick;
-  document.body.appendChild(button);
+  function addBackButton() {
+    var backButton = document.getElementById('whatsweb_toggle');
+    if (backButton !== null) return false;
+
+    var header =  document.querySelector('#main header');
+    if (header === null) return false;
+
+    var button_template = header.lastChild.lastChild.lastChild;
+    var backButton = document.createElement('div');
+    backButton.innerHTML = button_template.innerHTML;
+    backButton.className = button_template.className;
+
+    var backButtonContent = backButton.querySelector('span[data-icon]').parentElement;
+    backButtonContent.title = "Back";
+    backButtonContent.innerHTML = '<span>➤</span>';
+    backButtonContent.style.fontSize = '1.25rem';
+    backButtonContent.style.color = 'rgb(145,145,145)';
+    backButtonContent.style.lineHeight = '1.5rem';
+    backButtonContent.style.transform = 'rotate(180deg)';
+
+    backButton.id = 'whatsweb_toggle';
+    backButton.style.marginRight = '14px';
+    backButton.onclick = function(e) {
+      show('people');
+    };
+    header.prepend(backButton);
+  }
+
+  // var button = document.createElement("Button");
+  // button.id="whatsweb_toggle"
+  // button.innerHTML = "😶";
+  // button.style = "top:6px;left:calc(50% - 1.5rem);position:absolute;z-index: 9999;background-color: white;border-radius: 50%;height: 3rem;width: 3rem;color: white;font-size: 1.75rem;line-height: 1rem; opacity: 0.5;"
+  // button.onclick = buttonOnClick;
+  // document.body.appendChild(button);
 }
 
 void(0);
