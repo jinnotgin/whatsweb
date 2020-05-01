@@ -1,10 +1,11 @@
 {
   "name": "whatsweb",
-  "displayName": "whatsweb",
+  "displayName": "WhatsWeb",
   "expo": {
-    "name": "whatsweb",
-    "slug": "whatsweb",
+    "name": "WhatsWeb",
+    "icon": "./app-icon.png",
     "version": "1.0.0",
+    "slug": "whatsweb",
     "platforms": [
       "ios",
       "android",
@@ -12,6 +13,14 @@
     ],
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "ios": {
+      "bundleIdentifier": "com.jinnotgin.whatsweb",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.jinnotgin.whatsweb",
+      "versionCode": 1
+    }
   }
 }
